@@ -25,10 +25,4 @@
     </div>
 </template>
 
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
-</script>
+<script src="./leadslist.js"></script>
