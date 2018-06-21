@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Eloquent\Pages;
+namespace App\Repositories\Eloquent;
 
 use App\Repositories\Eloquent\EloquentRepositoryAbstract;
 use App\Repositories\Contracts\LeadRepository;

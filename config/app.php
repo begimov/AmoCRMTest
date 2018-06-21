@@ -161,6 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\AmoCrmServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 
