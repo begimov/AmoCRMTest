@@ -15,6 +15,11 @@ abstract class EloquentRepositoryAbstract implements RepositoryInterface, Criter
         $this->entity = $this->resolveEntity();
     }
 
+    public function get()
+    {
+        return $this->entity->get();
+    }
+
     public function storeMultiple(array $collection)
     {
         foreach ($collection as $element) {

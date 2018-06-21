@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\LeadRepository;
 use App\Transformers\LeadTransformer;
+use App\Repositories\Eloquent\Criteria\WhereLike;
 
 class LeadController extends Controller
 {
@@ -18,8 +19,12 @@ class LeadController extends Controller
 
     public function index()
     {
+        $leads = $this->leads->withCriteria([
+            new WhereLike('name', 'Тестовое задание')
+        ])->get();
+
         return fractal()
-            ->collection($this->leads->all())
+            ->collection($leads)
             ->transformWith(new LeadTransformer)
             ->toArray();
     }
