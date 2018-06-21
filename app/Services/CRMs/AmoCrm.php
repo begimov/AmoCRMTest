@@ -6,8 +6,8 @@ use App\Services\CRMs\Contracts\IAmoCrm;
 
 class AmoCrm implements IAmoCrm
 {
-    public function handle(array $payload)
+    public function handleAction(array $payload)
     {
-        # code...
+        Log::debug('amoCRM:', $payload);
     }
 }
