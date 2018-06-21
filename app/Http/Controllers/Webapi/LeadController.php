@@ -19,10 +19,20 @@ class LeadController extends Controller
 
     public function index()
     {
+        $count = $this->leads->count();
+
         $leads = $this->leads->withCriteria([
             new WhereLike('name', 'Тестовое задание')
         ])->get();
 
+        return [
+            'count' => $count,
+            'leads' => $this->transformLeads($leads)
+        ];
+    }
+
+    protected function transformLeads($leads)
+    {
         return fractal()
             ->collection($leads)
             ->transformWith(new LeadTransformer)

@@ -20,6 +20,11 @@ abstract class EloquentRepositoryAbstract implements RepositoryInterface, Criter
         return $this->entity->get();
     }
 
+    public function count()
+    {
+        return $this->entity->count();
+    }
+
     public function storeMultiple(array $collection)
     {
         foreach ($collection as $element) {
