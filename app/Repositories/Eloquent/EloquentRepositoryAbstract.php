@@ -16,12 +16,14 @@ abstract class EloquentRepositoryAbstract implements RepositoryInterface
 
     public function storeMultiple(array $collection)
     {
-        //
+        foreach ($collection as $element) {
+            $this->store($element);
+        }
     }
 
     public function store($data)
     {
-        //
+        $this->entity->create($data);
     }
 
     protected function resolveEntity()
