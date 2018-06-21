@@ -48177,11 +48177,11 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
     getLeads: function getLeads(_ref) {
         var commit = _ref.commit;
 
-        // commit('setIsLoading', true);
+        commit('setIsLoading', true);
         __WEBPACK_IMPORTED_MODULE_0__api__["a" /* default */].leads.getLeads().then(function (res) {
             console.log(res.data);
             commit('setCount', res.data.count);
-            // commit('setIsLoading', false);
+            commit('setIsLoading', false);
         });
     }
 });
@@ -48194,6 +48194,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 /* harmony default export */ __webpack_exports__["a"] = ({
     setCount: function setCount(state, value) {
         state.count = value;
+    },
+    setIsLoading: function setIsLoading(state, value) {
+        state.isLoading = value;
     }
 });
 
@@ -48380,35 +48383,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container mt-5" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", {
+          class: { isActive: _vm.isLoading, loader: true, "loader-def": true }
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt-5" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("table", { staticClass: "table table-striped mb-0" }, [
-                _c("thead", [
-                  _c("tr", [
-                    _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
-                    _vm._v(" "),
-                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Hash")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("tbody", [
-                  _c("tr", [
-                    _c("td", [_vm._v("Mark")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Otto")])
-                  ])
-                ])
-              ])
+    return _c("div", { staticClass: "card card-default" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("table", { staticClass: "table table-striped mb-0" }, [
+          _c("thead", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("Hash")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("td", [_vm._v("Mark")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("Otto")])
             ])
           ])
         ])

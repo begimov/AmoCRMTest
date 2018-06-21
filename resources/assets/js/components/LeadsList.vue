@@ -2,6 +2,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col">
+                <div v-bind:class="{ 'isActive': isLoading, 'loader': true, 'loader-def': true }"></div>
                 <div class="card card-default">
                     <div class="card-body">
                         <table class="table table-striped mb-0">
