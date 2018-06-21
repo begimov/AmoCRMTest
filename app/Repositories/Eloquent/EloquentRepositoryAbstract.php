@@ -25,6 +25,18 @@ abstract class EloquentRepositoryAbstract implements RepositoryInterface, Criter
         return $this->entity->count();
     }
 
+    public function take($number)
+    {
+        $this->entity->take($number);
+        return $this;
+    }
+
+    public function latest()
+    {
+        $this->entity->latest();
+        return $this;
+    }
+
     public function storeMultiple(array $collection)
     {
         foreach ($collection as $element) {

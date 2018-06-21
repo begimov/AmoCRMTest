@@ -19,15 +19,26 @@ class LeadController extends Controller
 
     public function index()
     {
-        $count = $this->leads->count();
+        $count = $this->leads
+            ->withCriteria($this->getCriteria())
+            ->count();
 
-        $leads = $this->leads->withCriteria([
-            new WhereLike('name', 'Тестовое задание')
-        ])->get();
+        $leads = $this->leads
+            ->withCriteria($this->getCriteria())
+            ->take(20)
+            ->latest()
+            ->get();
 
         return [
             'count' => $count,
             'leads' => $this->transformLeads($leads)
+        ];
+    }
+
+    public function getCriteria()
+    {
+        return [
+            new WhereLike('name', 'Тестовое задание')
         ];
     }
 

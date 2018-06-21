@@ -48410,7 +48410,22 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(0)
+              _c("div", { staticClass: "col text-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-sm btn-success",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.getLeads($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Обновить")]
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -48418,7 +48433,7 @@ var render = function() {
             _c("div", { staticClass: "table-responsive" }, [
               _vm.leads.length
                 ? _c("table", { staticClass: "table table-striped mb-0" }, [
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -48440,16 +48455,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col text-right" }, [
-      _c("a", { staticClass: "btn btn-sm btn-success", attrs: { href: "#" } }, [
-        _vm._v("Обновить")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

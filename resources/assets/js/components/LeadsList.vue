@@ -7,7 +7,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col"><h4 class="mb-0"><span class="badge badge-primary">Всего: {{ count }}</span></h4></div>
-                            <div class="col text-right"><a href="#" class="btn btn-sm btn-success">Обновить</a></div>
+                            <div class="col text-right"><a href="#" class="btn btn-sm btn-success" @click.prevent="getLeads">Обновить</a></div>
                         </div>
                     </div>
                     <div class="card-body">
