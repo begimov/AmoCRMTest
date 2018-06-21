@@ -9,8 +9,6 @@ class AmoCrm implements IAmoCrm
 {
     public function handleAction(array $payload)
     {
-        // Log::debug($payload['leads']['add'][0]['name']);
-
         [$entity] = array_keys($payload);
         [$action] = array_keys($payload[$entity]);
 
