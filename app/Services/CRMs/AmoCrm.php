@@ -4,6 +4,7 @@ namespace App\Services\CRMs;
 
 use App\Services\CRMs\Contracts\IAmoCrm;
 use Illuminate\Support\Facades\Log;
+use App\Jobs\Webhooks\AmoCRM\AddLeads;
 
 class AmoCrm implements IAmoCrm
 {
@@ -25,6 +26,6 @@ class AmoCrm implements IAmoCrm
     {
         $leads = $data[$entity][$action];
         
-        // queue
+        AddLeads::dispatch($leads);
     }
 }
