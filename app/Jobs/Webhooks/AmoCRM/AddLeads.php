@@ -8,6 +8,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
+use App\Repositories\Contracts\LeadRepository;
+
 class AddLeads implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -29,7 +31,7 @@ class AddLeads implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(LeadRepository $leadRepository)
     {
         $processedLeads = array_map(function($lead) {
             return [
@@ -39,7 +41,7 @@ class AddLeads implements ShouldQueue
             ];
         }, $this->leads);
 
-        \Illuminate\Support\Facades\Log::debug($processedLeads);
+        $leadRepository->storeMultiple($processedLeads);
     }
 
     protected function hashLeadName(string $leadName)
