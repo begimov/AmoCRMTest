@@ -48129,7 +48129,6 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__state__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getters__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__actions__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mutations__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mutations___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mutations__);
 
@@ -48141,7 +48140,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
   namespaced: true,
   state: __WEBPACK_IMPORTED_MODULE_0__state__["a" /* default */],
   getters: __WEBPACK_IMPORTED_MODULE_1__getters__["a" /* default */],
-  actions: __WEBPACK_IMPORTED_MODULE_2__actions___default.a,
+  actions: __WEBPACK_IMPORTED_MODULE_2__actions__["a" /* default */],
   mutations: __WEBPACK_IMPORTED_MODULE_3__mutations___default.a
 });
 
@@ -48167,9 +48166,24 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
 /***/ }),
 /* 44 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api__ = __webpack_require__(55);
 
 
+/* harmony default export */ __webpack_exports__["a"] = ({
+    getLeads: function getLeads(_ref) {
+        var commit = _ref.commit;
+
+        // commit('setIsLoading', true);
+        __WEBPACK_IMPORTED_MODULE_0__api__["a" /* default */].leads.getLeads().then(function (res) {
+            console.log(res.data);
+            // commit('setPages', res.data)
+            // commit('setIsLoading', false);
+        });
+    }
+});
 
 /***/ }),
 /* 45 */
@@ -48345,17 +48359,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])('leadslist', [
-        //
-    ]), {
-        getLeads: function getLeads() {
-            axios.get('/leads').then(function (res) {
-                console.log(res.data);
-            }).catch(function (err) {
-                //
-            });
-        }
-    }),
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])('leadslist', ['getLeads'])),
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])('leadslist', ['isLoading'])),
     mounted: function mounted() {
         this.getLeads();
@@ -48420,6 +48424,39 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__leads__ = __webpack_require__(56);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    leads: __WEBPACK_IMPORTED_MODULE_0__leads__["a" /* default */]
+});
+
+/***/ }),
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+  getLeads: function getLeads() {
+    return new Promise(function (resolve, reject) {
+      axios.get('/leads').then(function (res) {
+        resolve(res);
+      }).catch(function (err) {
+        reject(err);
+      });
+    });
+  }
+});
 
 /***/ })
 /******/ ]);
