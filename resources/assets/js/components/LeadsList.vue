@@ -11,20 +11,22 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <table class="table table-striped mb-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Hash</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0" v-if="leads.length">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Hash</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="lead in leads" :key="lead.id">
+                                        <td>{{ lead.id }}</td>
+                                        <td>{{ lead.hash }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
