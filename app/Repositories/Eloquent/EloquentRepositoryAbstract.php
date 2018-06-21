@@ -4,8 +4,9 @@ namespace App\Repositories\Eloquent;
 
 use App\Repositories\Exceptions\NoEntityDefined;
 use App\Repositories\Contracts\RepositoryInterface;
+use App\Repositories\Contracts\Criteria\CriteriaInterface;
 
-abstract class EloquentRepositoryAbstract implements RepositoryInterface
+abstract class EloquentRepositoryAbstract implements RepositoryInterface, CriteriaInterface
 {
     protected $entity;
 
@@ -29,6 +30,14 @@ abstract class EloquentRepositoryAbstract implements RepositoryInterface
     public function store($data)
     {
         $this->entity->create($data);
+    }
+
+    public function withCriteria(array $criteria)
+    {
+        foreach ($criteria as $criterion) {
+            $this->entity = $criterion->apply($this->entity);
+        }
+        return $this;
     }
 
     protected function resolveEntity()
