@@ -4,8 +4,8 @@ export default {
     getLeads({ commit }) {
         commit('setIsLoading', true);
         api.leads.getLeads().then(res => {
-            console.log(res.data);
-            commit('setCount', res.data.count)
+            commit('setCount', res.data.count);
+            commit('setLeads', res.data.leads.data);
             commit('setIsLoading', false);
         });
     }

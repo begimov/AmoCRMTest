@@ -48162,6 +48162,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 /* harmony default export */ __webpack_exports__["a"] = ({
     isLoading: function isLoading(state) {
         return state.isLoading;
+    },
+    leads: function leads(state) {
+        return state.leads;
     }
 });
 
@@ -48179,8 +48182,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
         commit('setIsLoading', true);
         __WEBPACK_IMPORTED_MODULE_0__api__["a" /* default */].leads.getLeads().then(function (res) {
-            console.log(res.data);
             commit('setCount', res.data.count);
+            commit('setLeads', res.data.leads.data);
             commit('setIsLoading', false);
         });
     }
@@ -48197,6 +48200,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
     },
     setIsLoading: function setIsLoading(state, value) {
         state.isLoading = value;
+    },
+    setLeads: function setLeads(state, leads) {
+        state.leads = leads;
     }
 });
 
@@ -48369,7 +48375,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])('leadslist', ['getLeads'])),
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])('leadslist', ['isLoading'])),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])('leadslist', ['isLoading', 'leads'])),
     mounted: function mounted() {
         this.getLeads();
     }
