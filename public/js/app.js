@@ -48130,7 +48130,6 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getters__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mutations__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mutations___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mutations__);
 
 
 
@@ -48141,7 +48140,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
   state: __WEBPACK_IMPORTED_MODULE_0__state__["a" /* default */],
   getters: __WEBPACK_IMPORTED_MODULE_1__getters__["a" /* default */],
   actions: __WEBPACK_IMPORTED_MODULE_2__actions__["a" /* default */],
-  mutations: __WEBPACK_IMPORTED_MODULE_3__mutations___default.a
+  mutations: __WEBPACK_IMPORTED_MODULE_3__mutations__["a" /* default */]
 });
 
 /***/ }),
@@ -48150,7 +48149,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-    isLoading: false
+    isLoading: false,
+    count: 0,
+    leads: []
 });
 
 /***/ }),
@@ -48179,7 +48180,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
         // commit('setIsLoading', true);
         __WEBPACK_IMPORTED_MODULE_0__api__["a" /* default */].leads.getLeads().then(function (res) {
             console.log(res.data);
-            // commit('setPages', res.data)
+            commit('setCount', res.data.count);
             // commit('setIsLoading', false);
         });
     }
@@ -48187,9 +48188,14 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
 /***/ }),
 /* 45 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+    setCount: function setCount(state, value) {
+        state.count = value;
+    }
+});
 
 /***/ }),
 /* 46 */

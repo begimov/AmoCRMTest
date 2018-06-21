@@ -1,3 +1,5 @@
 export default {
-    isLoading: false
+    isLoading: false,
+    count: 0,
+    leads: []
 }
