@@ -4,6 +4,12 @@
             <div class="col">
                 <div v-bind:class="{ 'isActive': isLoading, 'loader': true, 'loader-def': true }"></div>
                 <div class="card card-default">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col"><h4 class="mb-0"><span class="badge badge-primary">Всего: {{ count }}</span></h4></div>
+                            <div class="col text-right"><a href="#" class="btn btn-sm btn-success">Обновить</a></div>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <table class="table table-striped mb-0">
                             <thead>

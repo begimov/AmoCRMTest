@@ -4,5 +4,8 @@ export default {
     },
     leads(state) {
         return state.leads;
+    },
+    count(state) {
+        return state.count;
     }
 }

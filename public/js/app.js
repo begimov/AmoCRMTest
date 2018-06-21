@@ -48165,6 +48165,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
     },
     leads: function leads(state) {
         return state.leads;
+    },
+    count: function count(state) {
+        return state.count;
     }
 });
 
@@ -48375,7 +48378,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])('leadslist', ['getLeads'])),
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])('leadslist', ['isLoading', 'leads'])),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])('leadslist', ['isLoading', 'leads', 'count'])),
     mounted: function mounted() {
         this.getLeads();
     }
@@ -48396,7 +48399,23 @@ var render = function() {
           class: { isActive: _vm.isLoading, loader: true, "loader-def": true }
         }),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "card card-default" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("h4", { staticClass: "mb-0" }, [
+                  _c("span", { staticClass: "badge badge-primary" }, [
+                    _vm._v("Всего: " + _vm._s(_vm.count))
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
       ])
     ])
   ])
@@ -48406,23 +48425,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-default" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table table-striped mb-0" }, [
-          _c("thead", [
-            _c("tr", [
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Hash")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("td", [_vm._v("Mark")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Otto")])
-            ])
+    return _c("div", { staticClass: "col text-right" }, [
+      _c("a", { staticClass: "btn btn-sm btn-success", attrs: { href: "#" } }, [
+        _vm._v("Обновить")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("table", { staticClass: "table table-striped mb-0" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Hash")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", [_vm._v("Mark")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Otto")])
           ])
         ])
       ])

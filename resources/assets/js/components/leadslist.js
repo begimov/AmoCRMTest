@@ -9,7 +9,8 @@ export default {
     computed: {
         ...mapGetters('leadslist', [
             'isLoading',
-            'leads'
+            'leads',
+            'count'
         ])
     },
     mounted() {
