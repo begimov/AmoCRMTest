@@ -14,3 +14,8 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('/leads', 'Webapi\LeadController@index');
+
+// Webhooks
+Route::group(['prefix' => 'webhooks', 'namespace' => 'Webhooks'], function () {
+    Route::post('amocrm', 'AmoCRMWebhookController@handleWebhook');
+});
