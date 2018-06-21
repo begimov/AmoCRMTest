@@ -31,8 +31,20 @@ class AddLeads implements ShouldQueue
      */
     public function handle()
     {
-        foreach ($this->leads as $lead) {
-            \Illuminate\Support\Facades\Log::debug($lead);
-        }
+        $processedLeads = array_map(function($lead) {
+            return [
+                'amocrm_id' => $lead['id'],
+                'name' => $name = $lead['name'],
+                'hash_name' => $this->hashLeadName($name)
+            ];
+        }, $this->leads);
+
+        \Illuminate\Support\Facades\Log::debug($processedLeads);
+    }
+
+    protected function hashLeadName(string $leadName)
+    {
+        sleep(1);
+        return sha1($leadName);
     }
 }
