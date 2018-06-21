@@ -10,7 +10,7 @@ class LeadTransformer extends \League\Fractal\TransformerAbstract
     {
         return [
             'id' => $lead->amocrm_id,
-            'hash' => $businessEntity->hash_name,
+            'hash' => $lead->hash_name,
         ];
     }
 }

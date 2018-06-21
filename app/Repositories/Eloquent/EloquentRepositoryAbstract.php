@@ -14,6 +14,11 @@ abstract class EloquentRepositoryAbstract implements RepositoryInterface
         $this->entity = $this->resolveEntity();
     }
 
+    public function all()
+    {
+        return $this->entity->all();
+    }
+
     public function storeMultiple(array $collection)
     {
         foreach ($collection as $element) {

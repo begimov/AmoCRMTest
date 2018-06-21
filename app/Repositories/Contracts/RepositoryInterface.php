@@ -6,4 +6,5 @@ interface RepositoryInterface
 {
     public function storeMultiple(array $collection);
     public function store($data);
+    public function all();
 }
